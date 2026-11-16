@@ -37,12 +37,18 @@ fi
 say "gettext siap"
 
 # ---------- 3. Virtualenv ----------
-if [ ! -d venv ]; then
-  say "Membuat virtualenv .venv-uno"
-  python3 -m venv .venv-uno 2>/dev/null || die "python3-venv tidak tersedia. apt install python3-venv"
+VENVDIR=".venv-uno"
+if [ -d venv ] && [ ! -d "$VENVDIR" ]; then
+  warn "Folder 'venv' lama terdeteksi, memakainya ulang"
+  VENVDIR="venv"
 fi
+if [ ! -x "$VENVDIR/bin/python" ]; then
+  say "Membuat virtualenv $VENVDIR"
+  python3 -m venv "$VENVDIR" || die "python3-venv tidak tersedia. apt install python3-venv"
+fi
+[ -f "$VENVDIR/bin/activate" ] || die "Virtualenv $VENVDIR rusak (bin/activate tidak ada). Hapus lalu jalankan ulang."
 # shellcheck disable=SC1091
-source .venv-uno/bin/activate
+source "$VENVDIR/bin/activate"
 say "Virtualenv aktif: $VIRTUAL_ENV"
 
 # ---------- 4. Dependensi ----------

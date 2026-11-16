@@ -30,5 +30,13 @@ db.bind('sqlite', os.getenv('UNO_DB', 'uno.sqlite3'), create_db=True)
 db.generate_mapping(create_tables=True)
 
 gm = GameManager()
+
+if not TOKEN or TOKEN == 'PUT_YOUR_BOT_TOKEN_HERE':
+    raise SystemExit(
+        "\n[!] Token bot belum diisi.\n"
+        "    Isi 'token' di config.json atau jalankan ./setup.sh,\n"
+        "    atau set environment variable TOKEN, lalu jalankan lagi.\n"
+    )
+
 updater = Updater(token=TOKEN, workers=WORKERS, use_context=True)
 dispatcher = updater.dispatcher
