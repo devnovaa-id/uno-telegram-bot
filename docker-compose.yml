@@ -1,6 +1,10 @@
 version: "3"
 services:
   uno_devnova_bot:
+    build: .
     image: ghcr.io/devnovaa-id/uno-telegram-bot
+    env_file:
+      - .env
     volumes:
       - ./data:/app/data
+    restart: unless-stopped

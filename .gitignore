@@ -83,3 +83,6 @@ images/sticker_uploader.session
 
 # Virtualenv setup otomatis
 .venv-uno/
+
+# Environment (Docker/env_file)
+.env
