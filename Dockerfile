@@ -18,7 +18,7 @@ COPY        --chown=nobody:nogroup . .
 
 USER        nobody
 
-RUN         cd locales && \
+RUN         cd uno_telegram_bot/i18n/locales && \
             find . -maxdepth 2 -type d -name 'LC_MESSAGES' -exec ash -c 'msgfmt {}/unodev.po -o {}/unodev.mo' \;
 
 VOLUME      /app/data

@@ -18,25 +18,16 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 
-from config import TOKEN, WORKERS
-import logging
-import os
-from telegram.ext import Updater
+from pony.orm import Optional, PrimaryKey
+from uno_telegram_bot.core.database import db
 
-from game_manager import GameManager
-from database import db
 
-db.bind('sqlite', os.getenv('UNO_DB', 'uno.sqlite3'), create_db=True)
-db.generate_mapping(create_tables=True)
+class UserSetting(db.Entity):
 
-gm = GameManager()
-
-if not TOKEN or TOKEN == 'PUT_YOUR_BOT_TOKEN_HERE':
-    raise SystemExit(
-        "\n[!] Token bot belum diisi.\n"
-        "    Isi 'token' di config.json atau jalankan ./setup.sh,\n"
-        "    atau set environment variable TOKEN, lalu jalankan lagi.\n"
-    )
-
-updater = Updater(token=TOKEN, workers=WORKERS, use_context=True)
-dispatcher = updater.dispatcher
+    id = PrimaryKey(int, auto=False, size=64)  # Telegram User ID
+    lang = Optional(str, default='')  # The language setting for this user
+    stats = Optional(bool, default=False)  # Opt-in to keep game statistics
+    first_places = Optional(int, default=0)  # Nr. of games won in first place
+    games_played = Optional(int, default=0)  # Nr. of games completed
+    cards_played = Optional(int, default=0)  # Nr. of cards played total
+    use_keyboards = Optional(bool, default=False)  # Use keyboards (unused)

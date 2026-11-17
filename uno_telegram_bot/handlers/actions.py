@@ -2,19 +2,19 @@ import random
 
 import logging
 
-import card as c
+import uno_telegram_bot.core.card as c
 from datetime import datetime
 
 from telegram import Message, Chat
 from telegram.ext import CallbackContext
 from apscheduler.jobstores.base import JobLookupError
 
-from config import TIME_REMOVAL_AFTER_SKIP, MIN_FAST_TURN_TIME
-from errors import DeckEmptyError, NotEnoughPlayersError
-from internationalization import __, _
-from shared_vars import gm
-from user_setting import UserSetting
-from utils import send_async, display_name, game_is_running
+from uno_telegram_bot.config import TIME_REMOVAL_AFTER_SKIP, MIN_FAST_TURN_TIME
+from uno_telegram_bot.core.errors import DeckEmptyError, NotEnoughPlayersError
+from uno_telegram_bot.i18n import __, _
+from uno_telegram_bot.core.shared import gm
+from uno_telegram_bot.i18n.user_setting import UserSetting
+from uno_telegram_bot.ui.utils import send_async, display_name, game_is_running
 
 logger = logging.getLogger(__name__)
 

@@ -19,11 +19,11 @@
 
 
 import logging
-from config import ADMIN_LIST, OPEN_LOBBY, DEFAULT_GAMEMODE, ENABLE_TRANSLATIONS
+from uno_telegram_bot.config import ADMIN_LIST, OPEN_LOBBY, DEFAULT_GAMEMODE, ENABLE_TRANSLATIONS
 from datetime import datetime
 
-from deck import Deck
-import card as c
+from uno_telegram_bot.core.deck import Deck
+import uno_telegram_bot.core.card as c
 
 class Game(object):
     """ This class represents a game of UNO """

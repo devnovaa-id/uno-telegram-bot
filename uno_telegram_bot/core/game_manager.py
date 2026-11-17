@@ -20,9 +20,9 @@
 
 import logging
 
-from game import Game
-from player import Player
-from errors import (AlreadyJoinedError, LobbyClosedError, NoGameInChatError,
+from uno_telegram_bot.core.game import Game
+from uno_telegram_bot.core.player import Player
+from uno_telegram_bot.core.errors import (AlreadyJoinedError, LobbyClosedError, NoGameInChatError,
                     NotEnoughPlayersError)
 
 class GameManager(object):

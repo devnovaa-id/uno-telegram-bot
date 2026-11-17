@@ -55,7 +55,7 @@ pip install -r requirements.txt
 cp config.json.example config.json
 # isi "token" pada config.json
 
-find . -maxdepth 2 -type d -name 'LC_MESSAGES' \
+find uno_telegram_bot -type d -name 'LC_MESSAGES' \
   -exec bash -c 'msgfmt {}/unodev.po -o {}/unodev.mo' \;
 
 python3 bot.py
@@ -107,6 +107,26 @@ docker run --rm \
 ```
 
 Data (database SQLite) disimpan di `./data` (`UNO_DB=/app/data/uno.sqlite3`).
+
+## Struktur proyek
+
+```
+bot.py                     # launcher (python3 bot.py dari root)
+uno_telegram_bot/
+  bot.py                   # entrypoint & registrasi handler
+  start_bot.py             # bootstrap updater
+  config.py                # baca config.json + env
+  core/                    # logika game
+    card.py  deck.py  game.py  player.py
+    game_manager.py  database.py  errors.py  shared.py
+  handlers/                # handler Telegram
+    actions.py  settings.py  simple_commands.py
+  ui/                      # presentasi & util
+    results.py  utils.py  mwt.py
+  i18n/                    # terjemahan
+    __init__.py  user_setting.py
+    locales/               # *.po/*.mo + available.py
+```
 
 ## Daftar perintah
 

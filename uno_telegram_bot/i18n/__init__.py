@@ -19,15 +19,16 @@
 
 
 import gettext
+import pathlib
 from functools import wraps
 
-from locales import available_locales
+from uno_telegram_bot.i18n.locales import available_locales
 from pony.orm import db_session
-from user_setting import UserSetting
-from shared_vars import gm
+from uno_telegram_bot.i18n.user_setting import UserSetting
+from uno_telegram_bot.core.shared import gm
 
 GETTEXT_DOMAIN = 'unodev'
-GETTEXT_DIR = 'locales'
+GETTEXT_DIR = str(pathlib.Path(__file__).resolve().parent / 'locales')
 
 
 class _Underscore(object):

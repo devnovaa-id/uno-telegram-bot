@@ -99,8 +99,7 @@ fi
 
 # ---------- 6. Compile locale ----------
 say "Compile file terjemahan (.po -> .mo)"
-find . -path ./venv -prune -o -path ./.venv-uno -prune -o \
-     -maxdepth 3 -type d -name 'LC_MESSAGES' -print0 |
+find uno_telegram_bot -type d -name 'LC_MESSAGES' -print0 |
 while IFS= read -r -d '' d; do
   [ -f "$d/unodev.po" ] || continue
   msgfmt "$d/unodev.po" -o "$d/unodev.mo" 2>/dev/null && echo "   ok: $d"

@@ -21,11 +21,11 @@
 from telegram import ReplyKeyboardMarkup, Update
 from telegram.ext import CommandHandler, Filters, MessageHandler, CallbackContext
 
-from utils import send_async
-from user_setting import UserSetting
-from shared_vars import dispatcher
-from locales import available_locales
-from internationalization import _, user_locale
+from uno_telegram_bot.ui.utils import send_async
+from uno_telegram_bot.i18n.user_setting import UserSetting
+from uno_telegram_bot.core.shared import dispatcher
+from uno_telegram_bot.i18n.locales import available_locales
+from uno_telegram_bot.i18n import _, user_locale
 
 
 @user_locale

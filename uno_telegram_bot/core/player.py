@@ -21,9 +21,9 @@
 import logging
 from datetime import datetime
 
-import card as c
-from errors import DeckEmptyError
-from config import WAITING_TIME
+import uno_telegram_bot.core.card as c
+from uno_telegram_bot.core.errors import DeckEmptyError
+from uno_telegram_bot.config import WAITING_TIME
 
 
 class Player(object):

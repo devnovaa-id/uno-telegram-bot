@@ -20,9 +20,15 @@
 
 import os
 import json
+import pathlib
+
+# config.json ada di root proyek (dua level di atas file ini)
+CONFIG_PATH = pathlib.Path(os.getenv(
+    "CONFIG_PATH", pathlib.Path(__file__).resolve().parents[1] / "config.json"
+))
 
 try:
-    with open("config.json", "r") as f:
+    with open(CONFIG_PATH, "r") as f:
         config = json.load(f)
 except FileNotFoundError:
     config = {}

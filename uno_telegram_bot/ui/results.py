@@ -25,9 +25,9 @@ from uuid import uuid4
 from telegram import InlineQueryResultArticle, InputTextMessageContent, \
     InlineQueryResultCachedSticker as Sticker
 
-import card as c
-from utils import display_color, display_color_group, display_name
-from internationalization import _, __
+import uno_telegram_bot.core.card as c
+from uno_telegram_bot.ui.utils import display_color, display_color_group, display_name
+from uno_telegram_bot.i18n import _, __
 
 
 def add_choose_color(results, game):

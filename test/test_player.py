@@ -20,9 +20,9 @@
 
 import unittest
 
-from game import Game
-from player import Player
-import card as c
+from uno_telegram_bot.core.game import Game
+from uno_telegram_bot.core.player import Player
+import uno_telegram_bot.core.card as c
 
 
 class Test(unittest.TestCase):

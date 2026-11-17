@@ -20,10 +20,10 @@
 from telegram import ParseMode, Update
 from telegram.ext import CommandHandler, CallbackContext
 
-from user_setting import UserSetting
-from utils import send_async
-from shared_vars import dispatcher
-from internationalization import _, user_locale
+from uno_telegram_bot.i18n.user_setting import UserSetting
+from uno_telegram_bot.ui.utils import send_async
+from uno_telegram_bot.core.shared import dispatcher
+from uno_telegram_bot.i18n import _, user_locale
 
 BOT_USERNAME = "uno_devnova_bot"
 SOURCE_URL = "https://github.com/devnovaa-id/uno-telegram-bot"

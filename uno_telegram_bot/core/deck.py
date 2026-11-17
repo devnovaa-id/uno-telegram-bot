@@ -21,9 +21,9 @@
 from random import shuffle
 import logging
 
-import card as c
-from card import Card
-from errors import DeckEmptyError
+import uno_telegram_bot.core.card as c
+from uno_telegram_bot.core.card import Card
+from uno_telegram_bot.core.errors import DeckEmptyError
 
 
 class Deck(object):

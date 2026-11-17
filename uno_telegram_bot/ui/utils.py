@@ -22,9 +22,9 @@ import logging
 from telegram import Update
 from telegram.ext import CallbackContext
 
-from internationalization import _, __
-from mwt import MWT
-from shared_vars import gm, dispatcher
+from uno_telegram_bot.i18n import _, __
+from uno_telegram_bot.ui.mwt import MWT
+from uno_telegram_bot.core.shared import gm, dispatcher
 
 logger = logging.getLogger(__name__)
 
