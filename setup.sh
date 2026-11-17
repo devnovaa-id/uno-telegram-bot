@@ -115,7 +115,7 @@ cat <<EOF
 ${BOLD}Setup selesai.${RST}
 
 Jalankan bot:
-  source .venv-uno/bin/activate
+  source ${VENVDIR}/bin/activate
   python3 bot.py
 
 Setelah bot hidup, atur di @BotFather:

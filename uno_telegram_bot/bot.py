@@ -27,8 +27,8 @@ from telegram.ext import InlineQueryHandler, ChosenInlineResultHandler, \
 from telegram.ext.dispatcher import run_async
 
 import uno_telegram_bot.core.card as c
-import uno_telegram_bot.handlers.settings
-import uno_telegram_bot.handlers.simple_commands
+import uno_telegram_bot.handlers.settings as settings
+import uno_telegram_bot.handlers.simple_commands as simple_commands
 from uno_telegram_bot.handlers.actions import do_skip, do_play_card, do_draw, do_call_bluff, start_player_countdown
 from uno_telegram_bot.config import WAITING_TIME, DEFAULT_GAMEMODE, MIN_PLAYERS
 from uno_telegram_bot.core.errors import (NoGameInChatError, LobbyClosedError, AlreadyJoinedError,
